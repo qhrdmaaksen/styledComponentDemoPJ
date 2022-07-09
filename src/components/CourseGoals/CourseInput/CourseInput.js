@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
 
 import Button from '../../UI/Button/Button';
-import styled from 'styled-components';
+import styles from './CourseInput.module.css';
 
+/*sytledComponent
 const FormControlStyled = styled.div`
 	margin: 0.5rem 0;
 
@@ -29,6 +30,8 @@ const FormControlStyled = styled.div`
 		border-color: #8b005d;
 	}
 `;
+
+ */
 const CourseInput = props => {
 	const [enteredValue, setEnteredValue] = useState('');
 	const [isValid, setIsValid] = useState(true);
@@ -51,10 +54,10 @@ const CourseInput = props => {
 
 	return (
 			<form onSubmit={formSubmitHandler}>
-				<FormControlStyled invalid={!isValid}>
+				<div className={`${styles[`form-control`]} ${!isValid && styles.invalid}`}>
 					<label>코스 목표</label>
 					<input type="text" onChange={goalInputChangeHandler}/>
-				</FormControlStyled>
+				</div>
 				<Button type="submit">목표 추가</Button>
 			</form>
 	);
